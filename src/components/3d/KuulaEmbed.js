@@ -1,4 +1,9 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
+
+KuulaEmbed.propTypes = {
+    onHotspotClick: PropTypes.func.isRequired
+};
 
 const KuulaEmbed = ({ onHotspotClick }) => {
 

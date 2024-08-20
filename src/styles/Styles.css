@@ -1,0 +1,9 @@
+/*Editando el banner*/
+#banner{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+}

@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Arquitectonico integral soluciones/title>
+    <title>Proyecto Arquitectonico integral soluciones</title>
+    <link rel="stylesheet" href="https://unpkg.com/react-sliding-pane/dist/react-sliding-pane.css">
+    <link rel="stylesheet" href="../src/styles/Styles.css">
 </head>
 <body>
-    
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <div id="banner">
+        <script src="../src/components/3d/Banner3D.js"></script>
+        <div id="banner-container"></div>
+        <script>
+            ReactDOM.render(<Banner3D />, document.getElementById('banner-container'));
+        </script>
+    </div>
 </body>
 </html>

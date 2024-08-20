@@ -1,0 +1,20 @@
+{
+    "hotspot1": {
+        "title": "Planos del Proyecto",
+        "description": "Descripción detallada de los planos arquitectónicos del proyecto.",
+        "imgSrc": "./Images/PLANO_Servicio_Hotspot1.jpg",
+        "coords": {
+            "x": 66,
+            "y": 48
+        }
+    },
+    "hotspot2": {
+        "title": "Render 3D",
+        "description": "Visualización tridimensional del proyecto finalizado.",
+        "imgSrc": "./Images/RENDER3D_ToiletHotspot2.jpg",
+        "coords": {
+            "x": 131,
+            "y": 1
+        }
+    }
+}

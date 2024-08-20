@@ -1,5 +1,5 @@
 import React from 'react';
-import MainNavigator from './Navigations/MainNavigator';
+import MainNavigator from './Navigations/MainNavigator.js';
 
 function App() {
   return <MainNavigator />;

@@ -1,26 +1,27 @@
-// src/components/3d/Banner3D.js
 import React, { useState } from 'react';
-import KuulaEmbed from './KuulaEmbed'; 
+import KuulaEmbed from './KuulaEmbed'; // Asegúrate de que KuulaEmbed maneja correctamente los hotspots
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 
-// Importa los datos de los slides desde un archivo separado si es necesario
-import slidesContent from '../../data/slidesContent'; // Ejemplo de importación de configuración
+import slidesContent from '../../public/static/data/slidesContent.JSON';
 
 const Banner3D = () => {
+    const kuulaTourID = "7Kn08";
+
     const [isPaneOpen, setIsPaneOpen] = useState(false);
     const [currentSlide, setCurrentSlide] = useState(null);
 
     const handleHotspotClick = (hotspotId) => {
-        // Actualiza el estado según el ID del hotspot
         if (slidesContent[hotspotId]) {
             setCurrentSlide(hotspotId);
-            setIsPaneOpen(true); // Abre el panel lateral
+            setIsPaneOpen(true);
         }
     };
 
     return (
-        <div style={{ position: 'relative' }}>
+        <div>
+            <script src="https://static.kuula.io/embed.js" data-kuula={`https://kuula.co/share/collection/${kuulaTourID}?logo=1&info=1&fs=1&vr=0&sd=1&thumbs=1`} data-width="100%" data-height="640px"></script>
+            
             <KuulaEmbed onHotspotClick={handleHotspotClick} />
 
             <SlidingPane
@@ -30,7 +31,7 @@ const Banner3D = () => {
                 from="right"
                 width="400px"
             >
-                {currentSlide && (
+                {currentSlide && ( // Renderiza el contenido del panel solo si hay un slide seleccionado
                     <div>
                         <h2>{slidesContent[currentSlide].title}</h2>
                         <p>{slidesContent[currentSlide].description}</p>
