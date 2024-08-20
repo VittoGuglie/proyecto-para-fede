@@ -1,8 +1,11 @@
 // src/components/3d/Banner3D.js
 import React, { useState } from 'react';
-import KuulaEmbed from './KuulaEmbed.js'; // Asegúrate de que la ruta sea correcta
+import KuulaEmbed from './KuulaEmbed'; 
 import SlidingPane from "react-sliding-pane";
 import "react-sliding-pane/dist/react-sliding-pane.css";
+
+// Importa los datos de los slides desde un archivo separado si es necesario
+import slidesContent from '../../data/slidesContent'; // Ejemplo de importación de configuración
 
 const Banner3D = () => {
     const [isPaneOpen, setIsPaneOpen] = useState(false);
@@ -10,23 +13,10 @@ const Banner3D = () => {
 
     const handleHotspotClick = (hotspotId) => {
         // Actualiza el estado según el ID del hotspot
-        setCurrentSlide(hotspotId);
-        setIsPaneOpen(true); // Abre el panel lateral
-    };
-
-    const slidesContent = {
-        // Asume que tenemos diferentes IDs para los hotspots
-        'hotspot1': {
-            title: 'Planos del Proyecto',
-            description: 'Descripción de los planos...',
-            imgSrc: '/static/planos.png' // Ruta a la imagen del plano
-        },
-        'hotspot2': {
-            title: 'Render 3D',
-            description: 'Descripción del render...',
-            imgSrc: '/static/render.png' // Ruta a la imagen del render
-        },
-        // Puedes agregar más slides aquí
+        if (slidesContent[hotspotId]) {
+            setCurrentSlide(hotspotId);
+            setIsPaneOpen(true); // Abre el panel lateral
+        }
     };
 
     return (
@@ -35,7 +25,7 @@ const Banner3D = () => {
 
             <SlidingPane
                 isOpen={isPaneOpen}
-                title={currentSlide && slidesContent[currentSlide].title}
+                title={currentSlide ? slidesContent[currentSlide].title : ''}
                 onRequestClose={() => setIsPaneOpen(false)}
                 from="right"
                 width="400px"
@@ -57,4 +47,3 @@ const Banner3D = () => {
 };
 
 export default Banner3D;
-
